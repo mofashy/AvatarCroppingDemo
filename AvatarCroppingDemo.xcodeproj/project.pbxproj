@@ -15,6 +15,12 @@
 		0C3117DE1CD9D91500FD50CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C3117DC1CD9D91500FD50CB /* LaunchScreen.storyboard */; };
 		0C3117E91CD9D91500FD50CB /* AvatarCroppingDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3117E81CD9D91500FD50CB /* AvatarCroppingDemoTests.m */; };
 		0C3117F41CD9D91500FD50CB /* AvatarCroppingDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3117F31CD9D91500FD50CB /* AvatarCroppingDemoUITests.m */; };
+		0C3118141CDAD47600FD50CB /* CroppingCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C31180F1CDAD47600FD50CB /* CroppingCoverView.m */; };
+		0C3118151CDAD47600FD50CB /* CroppingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3118111CDAD47600FD50CB /* CroppingImageView.m */; };
+		0C3118161CDAD47600FD50CB /* CroppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3118131CDAD47600FD50CB /* CroppingViewController.m */; };
+		0CD19AF41CE4603D00F04656 /* ImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD19AF31CE4603D00F04656 /* ImageTool.m */; };
+		0CD19AF71CE473D500F04656 /* gifdemo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0CD19AF61CE473D500F04656 /* gifdemo.gif */; };
+		0CD19AF91CE4741500F04656 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0CD19AF81CE4741500F04656 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,17 @@
 		0C3117EF1CD9D91500FD50CB /* AvatarCroppingDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvatarCroppingDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C3117F31CD9D91500FD50CB /* AvatarCroppingDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AvatarCroppingDemoUITests.m; sourceTree = "<group>"; };
 		0C3117F51CD9D91500FD50CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C31180D1CDAD47600FD50CB /* CroppingConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CroppingConstant.h; sourceTree = "<group>"; };
+		0C31180E1CDAD47600FD50CB /* CroppingCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CroppingCoverView.h; sourceTree = "<group>"; };
+		0C31180F1CDAD47600FD50CB /* CroppingCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CroppingCoverView.m; sourceTree = "<group>"; };
+		0C3118101CDAD47600FD50CB /* CroppingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CroppingImageView.h; sourceTree = "<group>"; };
+		0C3118111CDAD47600FD50CB /* CroppingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CroppingImageView.m; sourceTree = "<group>"; };
+		0C3118121CDAD47600FD50CB /* CroppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CroppingViewController.h; sourceTree = "<group>"; };
+		0C3118131CDAD47600FD50CB /* CroppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CroppingViewController.m; sourceTree = "<group>"; };
+		0CD19AF21CE4603D00F04656 /* ImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTool.h; sourceTree = "<group>"; };
+		0CD19AF31CE4603D00F04656 /* ImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTool.m; sourceTree = "<group>"; };
+		0CD19AF61CE473D500F04656 /* gifdemo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gifdemo.gif; sourceTree = "<group>"; };
+		0CD19AF81CE4741500F04656 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +98,7 @@
 		0C3117C21CD9D91300FD50CB = {
 			isa = PBXGroup;
 			children = (
+				0CD19AF81CE4741500F04656 /* README.md */,
 				0C3117CD1CD9D91500FD50CB /* AvatarCroppingDemo */,
 				0C3117E71CD9D91500FD50CB /* AvatarCroppingDemoTests */,
 				0C3117F21CD9D91500FD50CB /* AvatarCroppingDemoUITests */,
@@ -101,6 +119,8 @@
 		0C3117CD1CD9D91500FD50CB /* AvatarCroppingDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0CD19AF51CE473D500F04656 /* ScreenShot */,
+				0C31180C1CDAD47600FD50CB /* Cropper */,
 				0C3117D11CD9D91500FD50CB /* AppDelegate.h */,
 				0C3117D21CD9D91500FD50CB /* AppDelegate.m */,
 				0C3117D41CD9D91500FD50CB /* ViewController.h */,
@@ -138,6 +158,30 @@
 				0C3117F51CD9D91500FD50CB /* Info.plist */,
 			);
 			path = AvatarCroppingDemoUITests;
+			sourceTree = "<group>";
+		};
+		0C31180C1CDAD47600FD50CB /* Cropper */ = {
+			isa = PBXGroup;
+			children = (
+				0CD19AF21CE4603D00F04656 /* ImageTool.h */,
+				0CD19AF31CE4603D00F04656 /* ImageTool.m */,
+				0C31180D1CDAD47600FD50CB /* CroppingConstant.h */,
+				0C31180E1CDAD47600FD50CB /* CroppingCoverView.h */,
+				0C31180F1CDAD47600FD50CB /* CroppingCoverView.m */,
+				0C3118101CDAD47600FD50CB /* CroppingImageView.h */,
+				0C3118111CDAD47600FD50CB /* CroppingImageView.m */,
+				0C3118121CDAD47600FD50CB /* CroppingViewController.h */,
+				0C3118131CDAD47600FD50CB /* CroppingViewController.m */,
+			);
+			path = Cropper;
+			sourceTree = "<group>";
+		};
+		0CD19AF51CE473D500F04656 /* ScreenShot */ = {
+			isa = PBXGroup;
+			children = (
+				0CD19AF61CE473D500F04656 /* gifdemo.gif */,
+			);
+			path = ScreenShot;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +289,7 @@
 			files = (
 				0C3117DE1CD9D91500FD50CB /* LaunchScreen.storyboard in Resources */,
 				0C3117DB1CD9D91500FD50CB /* Assets.xcassets in Resources */,
+				0CD19AF71CE473D500F04656 /* gifdemo.gif in Resources */,
 				0C3117D91CD9D91500FD50CB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,8 +315,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD19AF41CE4603D00F04656 /* ImageTool.m in Sources */,
 				0C3117D61CD9D91500FD50CB /* ViewController.m in Sources */,
 				0C3117D31CD9D91500FD50CB /* AppDelegate.m in Sources */,
+				0C3118151CDAD47600FD50CB /* CroppingImageView.m in Sources */,
+				0C3118141CDAD47600FD50CB /* CroppingCoverView.m in Sources */,
+				0C3118161CDAD47600FD50CB /* CroppingViewController.m in Sources */,
+				0CD19AF91CE4741500F04656 /* README.md in Sources */,
 				0C3117D01CD9D91500FD50CB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +546,7 @@
 				0C3117FA1CD9D91500FD50CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C3117FB1CD9D91500FD50CB /* Build configuration list for PBXNativeTarget "AvatarCroppingDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +555,7 @@
 				0C3117FD1CD9D91500FD50CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C3117FE1CD9D91500FD50CB /* Build configuration list for PBXNativeTarget "AvatarCroppingDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +564,7 @@
 				0C3118001CD9D91500FD50CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
