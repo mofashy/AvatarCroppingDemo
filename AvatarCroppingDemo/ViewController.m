@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "CroppingViewController.h"
 
-@interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, CroppingViewDelegate>
+@interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (assign, nonatomic) NSInteger tag;
 @property (weak, nonatomic) IBOutlet UIImageView *roundImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *rectangleImageView;
@@ -42,9 +42,18 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
+    __weak __typeof(self)weakSelf = self;
+    
     CroppingViewController *viewController = [[CroppingViewController alloc] init];
-    viewController.image = [ImageTool imageAfterCompressWithImage:[info objectForKey:UIImagePickerControllerOriginalImage] quality:0.8];
-    viewController.delegate = self;
+    viewController.image = [ImageTool turnImageWithInfo:info];
+    viewController.doneBlock = ^(UIImage *image) {
+        if (weakSelf.tag == 100) {
+            weakSelf.roundImageView.image = image;
+        } else {
+            weakSelf.rectangleImageView.image = image;
+        }
+        [picker dismissViewControllerAnimated:YES completion:nil];
+    };
     if (_tag == 100) {
         viewController.croppingSize = _roundImageView.frame.size;
         viewController.croppingType = CroppingTypeRound;
@@ -53,20 +62,10 @@
         viewController.croppingType = CroppingTypeRectangle;
     }
     
-    [self dismissViewControllerAnimated:YES completion:^{
-        [self presentViewController:viewController animated:YES completion:nil];
-    }];
+    [picker pushViewController:viewController animated:YES];
 }
 
-#pragma mark - CroppingViewDelegate
-
-- (void)croppingViewController:(CroppingViewController *)cropper didFinishCropped:(UIImage *)croppedImage {
-    
-    if (_tag == 100) {
-        _roundImageView.image = croppedImage;
-    } else {
-        _rectangleImageView.image = croppedImage;
-    }
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

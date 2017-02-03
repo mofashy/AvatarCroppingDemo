@@ -11,6 +11,6 @@
 
 @interface ImageTool : NSObject
 
-+ (UIImage *)imageAfterCompressWithImage:(UIImage *)image quality:(CGFloat)quality;
++ (UIImage *)turnImageWithInfo:(NSDictionary<NSString *,id> *)info;
 + (UIImage *)croppingImageView:(UIImageView *)imageView rect:(CGRect)rect;
 @end

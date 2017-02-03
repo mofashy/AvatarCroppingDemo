@@ -11,7 +11,6 @@
 #import "CroppingImageView.h"
 
 @interface CroppingViewController ()
-@property (strong, nonatomic) UIButton *doneButton;
 @property (strong, nonatomic) CroppingImageView *croppingImageView;
 @property (strong, nonatomic) CroppingCoverView *croppingCoverView;
 @end
@@ -20,19 +19,26 @@
 
 #pragma mark - Life cycle
 
+- (void)dealloc {
+    
+    NSLog(@"%@ dealloc", NSStringFromClass([self class]));
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor blackColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneAction:)];
+    
     [self.view addSubview:self.croppingImageView];
     [self.view addSubview:self.croppingCoverView];
-    [self.view addSubview:self.doneButton];
 }
 
 #pragma mark - Event handler
 
-- (void)doneAction {
+- (void)doneAction:(UIBarButtonItem *)sender {
     
     CGFloat x = (SCREEN_WIDTH - _croppingSize.width) * 0.5;
     CGFloat y = (SCREEN_HEIGHT - _croppingSize.height) * 0.5;
@@ -40,28 +46,12 @@
     CGRect newRect = [self.croppingCoverView convertRect:rect toView:_croppingImageView.imageView];
     UIImage *image = [ImageTool croppingImageView:self.croppingImageView.imageView rect:newRect];
     
-    if ([self.delegate respondsToSelector:@selector(croppingViewController:didFinishCropped:)]) {
-        
-        [self.delegate croppingViewController:self didFinishCropped:image];
+    if (self.doneBlock) {
+        self.doneBlock(image);
     }
 }
 
 #pragma mark - Getter   |   Setter
-
-- (UIButton *)doneButton {
-    
-    if (!_doneButton) {
-        _doneButton = ({
-            CGFloat width = 44.0;
-            UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            doneButton.frame = CGRectMake(SCREEN_WIDTH - 15 - width, 0, width, 44);
-            [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-            [doneButton addTarget:self action:@selector(doneAction) forControlEvents:UIControlEventTouchUpInside];
-            doneButton;});
-    }
-    
-    return _doneButton;
-}
 
 - (CroppingImageView *)croppingImageView {
     

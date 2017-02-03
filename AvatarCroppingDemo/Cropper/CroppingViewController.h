@@ -9,16 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CroppingConstant.h"
 
-@class CroppingViewController;
-
-@protocol CroppingViewDelegate <NSObject>
-@required
-- (void)croppingViewController:(CroppingViewController *)cropper didFinishCropped:(UIImage *)croppedImage;
-@end
-
 @interface CroppingViewController : UIViewController
 @property (strong, nonatomic) UIImage *image;
 @property (assign, nonatomic) CGSize croppingSize;
 @property (assign, nonatomic) CroppingType croppingType;
-@property (weak, nonatomic  ) id<CroppingViewDelegate> delegate;
+@property (copy, nonatomic) void(^doneBlock)(UIImage *image);
 @end

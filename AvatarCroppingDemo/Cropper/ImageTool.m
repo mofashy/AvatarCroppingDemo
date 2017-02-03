@@ -10,10 +10,21 @@
 
 @implementation ImageTool
 
-+ (UIImage *)imageAfterCompressWithImage:(UIImage *)image quality:(CGFloat)quality {
-    
-    NSData *data = UIImageJPEGRepresentation(image, quality);
-    return [[UIImage alloc] initWithData:data];
++ (UIImage *)turnImageWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *image=[info objectForKey:UIImagePickerControllerOriginalImage];
+    //类型为 UIImagePickerControllerOriginalImage 时图片角度
+    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([type isEqualToString:@"public.image"]) {
+        UIImageOrientation imageOrientation=image.imageOrientation;
+        if(imageOrientation!=UIImageOrientationUp) {
+            // 原始图片可以根据照相时的角度来显示，但 UIImage无法判定，于是出现获取的图片会向左转90度的现象。
+            UIGraphicsBeginImageContext(image.size);
+            [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+            image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+        }
+    }
+    return image;
 }
 
 + (UIImage *)croppingImageView:(UIImageView *)imageView rect:(CGRect)rect {
